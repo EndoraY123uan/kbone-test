@@ -56,7 +56,7 @@ module.exports = {
     }, {
       test: REGEXP_CSS,
       exclude: /node_moudles/,
-      use: 'css-loader'
+      use: ["style-loader", 'css-loader']
     }, {
       test: /\.(png|jpg|gif|svg)$/,
       exclude: /node_moudles/,

@@ -28,7 +28,7 @@ export default class Test extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{backgroundColor:'pink'}}>  
                 这是测试组件
                  {/* <Second name={this.state.name} fClick={this.handleClick2} /> */}
                  {/* <Second name={this.state.name} fClick={this.handleClick.bind(this)} /> */}

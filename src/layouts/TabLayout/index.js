@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './index.css'
 
 const TabLayout = ({ children }) => {
 
+
+    const [currentTab, setCurrentTab] = useState(0)
+
+
     const tabList = [
         {
             id: 1,
             title: '首页',
-            icon: '../../assets/home.png',
-            selectIcon: 'https://637752.freep.cn/637752/%E8%B0%81%E6%98%AF%E5%8D%A7%E5%BA%95/%E9%A6%96%E9%A1%B5.png'
-
+            icon: 'https://ftp.bmp.ovh/imgs/2021/08/f49e786ef425cc23.png',
+            selectIcon: 'https://ftp.bmp.ovh/imgs/2021/08/21b0b5c4c64dfe73.png'
         },
         {
             id: 2,
             title: '我的',
-            icon: 'https://637752.freep.cn/637752/%E8%B0%81%E6%98%AF%E5%8D%A7%E5%BA%95/%E6%88%91%E7%9A%84%20(1).png',
-            selectIcon: 'https://637752.freep.cn/637752/%E8%B0%81%E6%98%AF%E5%8D%A7%E5%BA%95/%E6%88%91%E7%9A%84.png'
+            icon: 'https://ftp.bmp.ovh/imgs/2021/08/b53ec1111537b8f7.png',
+            selectIcon: 'https://ftp.bmp.ovh/imgs/2021/08/9f9af55e9f5defa7.png'
         }
     ]
+
+    const handleChangeTab = index => {
+        setCurrentTab(index)
+    }
 
     return (
         <div className={'tabLayout'}>
@@ -28,9 +35,12 @@ const TabLayout = ({ children }) => {
 
             <div className={'tabContent'}>
                 {
-                    tabList.map(item => {
-                        return <div className={'tabItem'}>
-                            <img className={'tabItemIcon'} src={item.icon} />
+                    tabList.map((item, index) => {
+                        return <div className={'tabItem'} onClick={() => handleChangeTab(index)}>
+                            <img className={'tabItemIcon'} src={index === currentTab ? item.selectIcon : item.icon} />
+                            <div className={'title'}>
+                                {item.title}
+                            </div>
                         </div>
                     })
                 }
