@@ -6,6 +6,9 @@ const TerserPlugin = require('terser-webpack-plugin')
 const MpPlugin = require('mp-webpack-plugin')
 const isOptimize = false // 是否压缩业务代码，开发者工具可能无法完美支持业务代码使用到的 es 特性，建议自己做代码压缩
 
+
+const REGEXP_LESS = /\.less$/;
+
 module.exports = {
     mode: 'production',
     entry: {
@@ -92,11 +95,55 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
-            }
+            },
+            {
+                oneOf: [
+                  {
+                    test: REGEXP_LESS,
+                    include: /src/,
+                    use: [
+                      "style-loader",
+                      {
+                        loader: "css-loader",
+                        options: {
+                          modules: true,
+                          importLoaders: 1,
+                        },
+                      },
+                      {
+                        loader: "less-loader",
+                        options: {
+                          javascriptEnabled: true,
+                        },
+                      },
+                    ],
+                  },
+                  {
+                    test: REGEXP_LESS,
+                    exclude: /src/,
+                    use: [
+                      "style-loader",
+                      {
+                        loader: "css-loader",
+                        options: {
+                          modules: false,
+                          importLoaders: 1,
+                        },
+                      },
+                      {
+                        loader: "less-loader",
+                        options: {
+                          javascriptEnabled: true,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.vue', '.json']
+        extensions: ['*', '.tsx','.js', '.vue', '.json']
     },
     plugins: [
         new webpack.DefinePlugin({
