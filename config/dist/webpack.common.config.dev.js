@@ -25,7 +25,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 var REGEXP_CSS = /\.css$/;
 var REGEXP_CSS_MODULE = /\.(module|m)\.css$/;
 var REGEXP_LESS = /\.less$/;
-var REGEXP_LESS_MODULE = /\.(module|m)\.less$/; // 负责将html文档虚拟到根目录下
+var REGEXP_LESS_MODULE = /\.(module|m)\.less$/;
+process.env.isMiniprogram = false; // 负责将html文档虚拟到根目录下
 
 var htmlWebpackPlugin = new HtmlWebpackPlugin({
   // 虚拟的html文件名 index.html
@@ -102,5 +103,8 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
   // 装载虚拟目录插件
-  plugins: [htmlWebpackPlugin, new webpack.HotModuleReplacementPlugin()]
+  plugins: [htmlWebpackPlugin, new webpack.DefinePlugin({
+    'process.env.isMiniprogram': process.env.isMiniprogram // 注入环境变量，用于业务代码判断
+
+  }), new webpack.HotModuleReplacementPlugin()]
 };

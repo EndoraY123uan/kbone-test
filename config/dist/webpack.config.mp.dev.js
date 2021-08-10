@@ -14,6 +14,7 @@ var MpPlugin = require('mp-webpack-plugin');
 
 var isOptimize = false; // 是否压缩业务代码，开发者工具可能无法完美支持业务代码使用到的 es 特性，建议自己做代码压缩
 
+process.env.isMiniprogram = true;
 var REGEXP_LESS = /\.less$/;
 module.exports = {
   mode: 'production',

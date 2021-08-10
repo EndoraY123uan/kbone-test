@@ -21,6 +21,9 @@ const REGEXP_LESS = /\.less$/;
 const REGEXP_LESS_MODULE = /\.(module|m)\.less$/;
 
 
+process.env.isMiniprogram = false
+
+
 
 // 负责将html文档虚拟到根目录下
 let htmlWebpackPlugin = new HtmlWebpackPlugin({
@@ -119,5 +122,9 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
   },
   // 装载虚拟目录插件
-  plugins: [htmlWebpackPlugin, new webpack.HotModuleReplacementPlugin()],
+  plugins: [htmlWebpackPlugin,
+    new webpack.DefinePlugin({
+      'process.env.isMiniprogram': process.env.isMiniprogram, // 注入环境变量，用于业务代码判断
+    }),
+    new webpack.HotModuleReplacementPlugin()],
 };

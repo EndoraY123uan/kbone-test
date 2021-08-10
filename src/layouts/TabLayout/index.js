@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { isIphoneX } from '../../util/platform'
+
+
 
 import './index.css'
 
@@ -7,7 +10,7 @@ const TabLayout = ({ children }) => {
 
     const [currentTab, setCurrentTab] = useState(0)
 
-
+    isIphoneX()
     const tabList = [
         {
             id: 1,
@@ -26,6 +29,8 @@ const TabLayout = ({ children }) => {
     const handleChangeTab = index => {
         setCurrentTab(index)
     }
+
+
 
     return (
         <div className={'tabLayout'}>
