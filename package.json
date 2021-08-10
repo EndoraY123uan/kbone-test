@@ -17,6 +17,7 @@
     "fix": "eslint src --fix"
   },
   "dependencies": {
+    "kbone-api": "^0.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },

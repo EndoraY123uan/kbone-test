@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import { isIphoneX } from '../../util/platform'
 
-
-
 import './index.css'
 
 const TabLayout = ({ children }) => {
-
-
     const [currentTab, setCurrentTab] = useState(0)
-
-    isIphoneX()
+    console.log('----------',isIphoneX())
     const tabList = [
         {
             id: 1,
@@ -33,12 +28,12 @@ const TabLayout = ({ children }) => {
 
 
     return (
-        <div className={'tabLayout'}>
+        <div className={'tabLayout'} >
             <div className={'childrenContent'}>
                 {children}
             </div>
 
-            <div className={'tabContent'}>
+            <div className={'tabContent'} style={{ paddingBottom: isIphoneX() ? 70 : ''}}>
                 {
                     tabList.map((item, index) => {
                         return <div className={'tabItem'} onClick={() => handleChangeTab(index)}>
