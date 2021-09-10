@@ -17,9 +17,12 @@
     "fix": "eslint src --fix"
   },
   "dependencies": {
+    "history": "^5.0.0",
     "kbone-api": "^0.2.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   },
   "browserslist": [
     "> 1%",

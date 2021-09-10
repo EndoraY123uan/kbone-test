@@ -33,7 +33,7 @@ export default class Test extends Component {
                  {/* <Second name={this.state.name} fClick={this.handleClick2} /> */}
                  {/* <Second name={this.state.name} fClick={this.handleClick.bind(this)} /> */}
                  {/* <Second name={this.state.name} fClick={() => this.handleClick()} /> */}
-                 <Second name={this.state.name} fClick={this.handleClick3} />
+                 {/* <Second name={this.state.name} fClick={this.handleClick3} /> */}
             </div>
         )
     }

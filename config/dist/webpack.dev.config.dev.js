@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  * @Author: jinzi.yuan
  * @description: $1
@@ -6,10 +8,11 @@
  * @LastEditTime: 2020-11-20 14:33:15
  * @FilePath: \rpack\webpack\webpack.dev.config.js
  */
+var path = require("path"); //const { proxy } = require("./config/proxy");
 
-const path = require("path");
-//const { proxy } = require("./config/proxy");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+var _require = require("clean-webpack-plugin"),
+    CleanWebpackPlugin = _require.CleanWebpackPlugin;
 
 module.exports = {
   mode: "development",
@@ -20,9 +23,9 @@ module.exports = {
     // port: 3333,
     hot: true,
     open: true,
-    historyApiFallback: true,
-    // proxy,
+    historyApiFallback: true // proxy,
+
   },
   // 装载虚拟目录插件
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin()]
 };

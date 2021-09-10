@@ -8,6 +8,8 @@
   flex: 1;
 }
 
+
+
 .tabContent {
   box-sizing: border-box;
   padding: 10px 0;
@@ -18,12 +20,19 @@
 }
 
 .tabItem {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   align-items: center;
 }
 
 .tabItem .title{
   font-size: 12px;
+}
+
+.imgIcon{
+  width: 25px;
+  height: 25px;
 }
 
 .tabItemIcon{

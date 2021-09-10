@@ -19,8 +19,8 @@ var REGEXP_LESS = /\.less$/;
 module.exports = {
   mode: 'production',
   entry: {
-    index: path.resolve(__dirname, '../src/index.mp.js') // log: path.resolve(__dirname, '../src/log.js')
-
+    index: path.resolve(__dirname, '../src/index.mp.1.js'),
+    test: path.resolve(__dirname, '../src/index.mp.2.js')
   },
   output: {
     path: path.resolve(__dirname, '../build/mp/common'),

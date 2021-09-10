@@ -1,18 +1,25 @@
 import React from 'react'
-import logo from './logo.svg';
-import './App.css';
-import TabLayout from './layouts/TabLayout';
+import { BrowserRouter as Router, Route, Redirect, useHistory, Switch } from 'react-router-dom'
+import { createBrowserHistory } from "history";
+import routeConfig from '../config/route.config'
+
+import Home from '../src/pages/home'
+import Mine from '../src/pages/mine'
+import TabLayout from './layouts/TabLayout'
 import Test from './pages/test'
+import './App.css';
 
-
+const history = createBrowserHistory();
 function App() {
+
+  const History = useHistory();
+
   return (
-    <div className="App">
-      {/* <Test /> */}
-      <TabLayout>
-        
-      </TabLayout>
-    </div>
+    <Router>
+      <Redirect from='/' to='/index/home' />
+      <Route path='/test' extra component={Test} />
+      <Route path='/index' component={TabLayout} />
+    </Router>
   );
 }
 
