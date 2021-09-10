@@ -47,9 +47,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_moudles/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: ['babel-loader']
       },
       {
         test: /\.(ts|tsx)$/,

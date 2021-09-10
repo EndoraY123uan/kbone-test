@@ -15,7 +15,8 @@ module.exports = {
   mode: 'production',
   entry: {
     index: path.resolve(__dirname, '../src/index.mp.1.js'),
-    test: path.resolve(__dirname, '../src/index.mp.2.js')
+    test: path.resolve(__dirname, '../src/index.mp.2.js'),
+    undercoverRome: path.resolve(__dirname, '../src/index.mp.3.js'),
   },
   output: {
     path: path.resolve(__dirname, '../build/mp/common'), // 放到小程序代码目录中的 common 目录下

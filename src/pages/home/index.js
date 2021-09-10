@@ -3,11 +3,13 @@ import kboneAPI from 'kbone-api'
 import { withRouter } from 'react-router-dom'
 
 import './index.css'
+import WhoIsUndercover from '../whiIsUndercover'
 
 const Home = ({ history }) => {
     return (
         <div className='home-container'>
-            <div>
+            <WhoIsUndercover/>
+            {/* <div>
             这是首页这是首页
             </div>
             
@@ -22,7 +24,7 @@ const Home = ({ history }) => {
 
             }}>
                 点我跳转
-            </button>
+            </button> */}
         </div>
     )
 }

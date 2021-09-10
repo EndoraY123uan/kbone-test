@@ -1,0 +1,56 @@
+.undercover {
+  width: 100%;
+  height: 100%;
+  background: url('https://z3.ax1x.com/2021/09/10/hXcIBj.jpg') center center /
+    100% 100%;
+}
+
+.gameCount {
+  margin: 20px auto;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+
+.count {
+  margin: 0 20px;
+  font-size: 24px;
+}
+
+.slider {
+  width: 100%;
+  height: 100px;
+}
+
+@keyframes start {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+.start-btn {
+  margin: 0 auto;
+  margin-top: 140px;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #fff;
+  animation: start 2s ease-in-out infinite;
+}

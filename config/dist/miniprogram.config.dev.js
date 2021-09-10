@@ -8,17 +8,19 @@ module.exports = {
   entry: '/',
   router: {
     index: ['/'],
-    test: ['/test']
+    test: ['/test'],
+    undercoverRome: ['/undercoverRome']
   },
   // redirect: {
   // 	notFound: 'index',
   // 	accessDenied: 'index',
   // },
   generate: {
-    autoBuildNpm: false,
-    subpackages: {
-      test: ['/test']
-    }
+    autoBuildNpm: false // subpackages: {
+    // 	test: ['/test'],
+    // 	undercoverRome: ['/undercoverRome']
+    // }
+
   },
   app: {
     navigationBarTitleText: '测试页面'
@@ -27,7 +29,14 @@ module.exports = {
     sitemapLocation: 'sitemap.json'
   },
   global: {},
-  pages: {},
+  pages: {
+    index: {
+      share: true
+    },
+    undercoverRome: {
+      share: true
+    }
+  },
   optimization: {
     domSubTreeLevel: 10,
     elementMultiplexing: true,
