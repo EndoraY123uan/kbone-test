@@ -61,11 +61,14 @@ const WhoIsUndercover = () => {
         kboneAPI.navigateTo({
             url: `${path}?count=${undercoverRef.current.currentStepValue}`
         })
+        // kboneAPI.navigateTo({
+        //     url: `${path}?count=${currentStepValue}`
+        // })
     }
 
 
-    window.onShareAppMessage = function(data) {
-        console.log('----- share-----',data)
+    window.onShareAppMessage = function (data) {
+        console.log('----- share-----', data)
         // 当页面被转发时会进入这个回调
         // 返回一个对象，作为小程序处理转发的参数，对象内容和小程序页面 onShareAppMessage 回调可返回对象内容基本一致，具体可参考官方文档：https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object
         return {
@@ -77,7 +80,7 @@ const WhoIsUndercover = () => {
             // miniprogramPath: `/pages/page2/index?type=share&targeturl=${encodeURIComponent('/b')}`, // 如果需要分享原始小程序页面路由，可传递此参数
         }
     }
-    
+
 
     return (
         <div className='undercover' ref={undercoverRef}>
