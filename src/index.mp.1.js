@@ -4,7 +4,7 @@ import App from './App'
 
 export default function createApp() {
   const container = document.createElement('div')
-  container.id = 'app'
+  container.id = 'app1'
   container.style = 'height:100vh;overflow:hidden'
   document.body.appendChild(container)
 

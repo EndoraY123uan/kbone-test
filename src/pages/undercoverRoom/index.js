@@ -65,7 +65,7 @@ const UndercoverRome = () => {
         // 当页面被转发时会进入这个回调
         // 返回一个对象，作为小程序处理转发的参数，对象内容和小程序页面 onShareAppMessage 回调可返回对象内容基本一致，具体可参考官方文档：https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object
         return {
-            title: 'test title',
+            title: '邀请好友',
             path: '/pages/undercoverRome/index?count=5', // 当前页面，这里的 path 是页面 url，而不是小程序路由
             // path: 'https://test.miniprogram.com/a', // 当前页面的完整 url，同上
             // path: '/b', // 其他页面，同上
@@ -100,10 +100,9 @@ const UndercoverRome = () => {
                 <button className='btn'>
                     开始游戏
                 </button>
-                <button className='btn share'>
+                <wx-button open-type="share" className='btn share'>
                     邀请好友
-                </button>
-
+                </wx-button>
             </div>
 
         </div>
