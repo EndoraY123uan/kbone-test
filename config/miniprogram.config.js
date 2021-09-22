@@ -16,13 +16,21 @@ module.exports = {
 	// },
 	generate: {
 		autoBuildNpm: false,
-		// subpackages: {
-		// 	test: ['/test'],
-		// 	undercoverRome: ['/undercoverRome']
-		// }
+		subpackages: {
+			test: ['test'],
+			undercoverRome: ['undercoverRome']
+		},
+		preloadRule: {
+			index: {
+				network: "all",
+				packages: ["test", 'undercoverRome'],
+			},
+		}
 	},
 	app: {
-		navigationBarTitleText: '测试页面',
+		navigationBarTitleText: '首页',
+		navigationBarBackgroundColor: '#FFF',
+		navigationBarTextStyle: 'black'
 	},
 	appExtraConfig: {
 		sitemapLocation: 'sitemap.json',
@@ -30,10 +38,11 @@ module.exports = {
 	global: {},
 	pages: {
 		index: {
-			share: true
+			share: true,
+			//	navigationBarTitleText: '首页',
 		},
 		undercoverRome: {
-			share: true
+			share: true,
 		}
 	},
 	optimization: {

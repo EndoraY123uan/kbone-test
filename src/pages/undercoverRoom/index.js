@@ -22,13 +22,21 @@ const UndercoverRome = () => {
     window[getUserInfo] = (e) => {
         onGetUserInfo(e)
     }
+
     const eventMap = JSON.stringify({
         getUserInfo: getUserInfo
     })
 
 
+    useEffect(() => {
+        kboneAPI.setNavigationBarTitle({
+            title: '房间'
+        })
+    }, [0])
+
+
     const onGetUserInfo = e => {
-        console.log('-------', e.detail)
+        // console.log('-------', e.detail)
         if (e.detail.errMsg === "getUserInfo:ok") {
             const info = e.detail.rawData
             const oldInfo = JSON.parse(kboneAPI.getStorageSync('userInfo'))
@@ -66,7 +74,6 @@ const UndercoverRome = () => {
         }
     }
 
-
     return (
         <div className='room'>
             <div className='title'>
@@ -76,7 +83,6 @@ const UndercoverRome = () => {
             <div className='content'>
                 {
                     userArr.map((userItem) => {
-                        console.log('userItem-----', userItem)
                         return <div className='avatorContent'>
                             <img className='avator' src={userItem.avatarUrl} />
                         </div>

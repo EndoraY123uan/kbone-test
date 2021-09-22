@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import kboneAPI from 'kbone-api'
 import { withRouter } from 'react-router-dom'
 
@@ -6,6 +6,13 @@ import './index.css'
 import WhoIsUndercover from '../whiIsUndercover'
 
 const Home = ({ history }) => {
+
+    useEffect(() => {
+        kboneAPI.setNavigationBarTitle({
+            title:'首页'
+        })
+    }, [0])
+
     return (
         <div className='home-container'>
             <WhoIsUndercover/>

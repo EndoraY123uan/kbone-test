@@ -25,6 +25,9 @@ const WhoIsUndercover = () => {
 
     useEffect(() => {
         undercoverRef.current.currentStepValue = currentStepValue
+        kboneAPI.setNavigationBarTitle({
+            title: '创建房间'
+        })
     }, [0])
 
 
@@ -54,10 +57,27 @@ const WhoIsUndercover = () => {
 
 
     const handleCreateRoom = () => {
+        const path = '/undercoverRome/pages/undercoverRome/index'
         kboneAPI.navigateTo({
-            url: `/pages/undercoverRome/index?count=${undercoverRef.current.currentStepValue}`
+            url: `${path}?count=${undercoverRef.current.currentStepValue}`
         })
     }
+
+
+    window.onShareAppMessage = function(data) {
+        console.log('----- share-----',data)
+        // 当页面被转发时会进入这个回调
+        // 返回一个对象，作为小程序处理转发的参数，对象内容和小程序页面 onShareAppMessage 回调可返回对象内容基本一致，具体可参考官方文档：https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object
+        return {
+            title: 'hahhahahhahah',
+            path: '/a', // 当前页面，这里的 path 是页面 url，而不是小程序路由
+            // path: 'https://test.miniprogram.com/a', // 当前页面的完整 url，同上
+            // path: '/b', // 其他页面，同上
+            // path: 'https://test.miniprogram.com/b', // 其他页面的完整 url，同上
+            // miniprogramPath: `/pages/page2/index?type=share&targeturl=${encodeURIComponent('/b')}`, // 如果需要分享原始小程序页面路由，可传递此参数
+        }
+    }
+    
 
     return (
         <div className='undercover' ref={undercoverRef}>
