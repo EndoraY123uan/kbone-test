@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-	origin: 'https://test.miniprogram.com',
+	origin: 'http://localhost:3000',
 	entry: '/',
 	router: {
 		index: ['/'],

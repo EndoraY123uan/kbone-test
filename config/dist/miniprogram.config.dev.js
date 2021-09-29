@@ -4,7 +4,7 @@
  * 配置参考：https://wechat-miniprogram.github.io/kbone/docs/config/
  */
 module.exports = {
-  origin: 'https://test.miniprogram.com',
+  origin: 'http://localhost:3000',
   entry: '/',
   router: {
     index: ['/'],

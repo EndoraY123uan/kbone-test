@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import kboneAPI from 'kbone-api'
+import request from '@util/request'
 import './index.css'
 
 const WhoIsUndercover = () => {
@@ -58,9 +59,13 @@ const WhoIsUndercover = () => {
 
     const handleCreateRoom = () => {
         const path = '/undercoverRome/pages/undercoverRome/index'
-        kboneAPI.navigateTo({
-            url: `${path}?count=${undercoverRef.current.currentStepValue}`
+        request('/').then((res) => {
+            console.log('--------/------')
         })
+
+        // kboneAPI.navigateTo({
+        //     url: `${path}?count=${undercoverRef.current.currentStepValue}`
+        // })
         // kboneAPI.navigateTo({
         //     url: `${path}?count=${currentStepValue}`
         // })

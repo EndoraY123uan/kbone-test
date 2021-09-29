@@ -99,41 +99,56 @@ module.exports = {
       options: {
         name: '[name].[ext]?[hash]'
       }
-    }, {
-      oneOf: [{
-        test: REGEXP_LESS,
-        include: /src/,
-        use: ["style-loader", {
-          loader: "css-loader",
-          options: {
-            modules: true,
-            importLoaders: 1
-          }
-        }, {
-          loader: "less-loader",
-          options: {
-            javascriptEnabled: true
-          }
-        }]
-      }, {
-        test: REGEXP_LESS,
-        exclude: /src/,
-        use: ["style-loader", {
-          loader: "css-loader",
-          options: {
-            modules: false,
-            importLoaders: 1
-          }
-        }, {
-          loader: "less-loader",
-          options: {
-            javascriptEnabled: true
-          }
-        }]
-      }]
-    }]
+    } // {
+    //   oneOf: [
+    //     {
+    //       test: REGEXP_LESS,
+    //       include: /src/,
+    //       use: [
+    //         "style-loader",
+    //         {
+    //           loader: "css-loader",
+    //           options: {
+    //             modules: true,
+    //             importLoaders: 1,
+    //           },
+    //         },
+    //         {
+    //           loader: "less-loader",
+    //           options: {
+    //             javascriptEnabled: true,
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       test: REGEXP_LESS,
+    //       exclude: /src/,
+    //       use: [
+    //         "style-loader",
+    //         {
+    //           loader: "css-loader",
+    //           options: {
+    //             modules: false,
+    //             importLoaders: 1,
+    //           },
+    //         },
+    //         {
+    //           loader: "less-loader",
+    //           options: {
+    //             javascriptEnabled: true,
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    ]
   },
   resolve: {
+    alias: {
+      "@util": path.resolve("src/util")
+    },
     extensions: ['*', '.tsx', '.js', '.vue', '.json']
   },
   plugins: [new webpack.DefinePlugin({
