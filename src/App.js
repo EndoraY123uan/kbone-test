@@ -11,7 +11,6 @@ import './App.css';
 
 const history = createBrowserHistory();
 function App() {
-
   const History = useHistory();
 
   return (

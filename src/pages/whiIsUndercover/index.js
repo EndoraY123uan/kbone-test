@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import kboneAPI from 'kbone-api'
 import request from '@util/request'
+//import login from '@util/isLogin'
 import './index.css'
 
 const WhoIsUndercover = () => {
@@ -10,8 +11,11 @@ const WhoIsUndercover = () => {
     const undercoverRef = useRef(null)
 
 
+
+
     let change = 'change'
     let getUserInfo = 'getUserInfo'
+    let getPhoneNumber = 'getPhoneNumber'
 
     window[change] = (e) => {
         stepChange(e)
@@ -19,9 +23,13 @@ const WhoIsUndercover = () => {
     window[getUserInfo] = (e) => {
         onGetUserInfo(e)
     }
+    window[getPhoneNumber] = (e) => {
+        onGetUserInfo(e)
+    }
     const eventMap = JSON.stringify({
         change: change,
-        getUserInfo: getUserInfo
+       // getUserInfo: getUserInfo,
+        getPhoneNumber: getPhoneNumber
     })
 
     useEffect(() => {
@@ -29,12 +37,43 @@ const WhoIsUndercover = () => {
         kboneAPI.setNavigationBarTitle({
             title: '创建房间'
         })
+
     }, [0])
 
+
+    const onGetUserInfo = () => {
+        if (e.detail.errMsg === "getPhoneNumber:ok") {
+            const info = e.detail.rawData
+
+            console.log('---------phone-', info)
+            // request('/login', {
+            //     username: ''
+            // })
+
+
+            // const oldInfo = kboneAPI.getStorageSync('userInfo')
+            // !oldInfo && kboneAPI.setStorage({
+            //     key: "userInfo",
+            //     data: e.detail.rawData
+            // })
+
+            // handleCreateRoom()
+        } else {
+            kboneAPI.showToast({
+                title: '请确认授权',
+                icon: 'none'
+            })
+        }
+    }
 
     const onGetUserInfo = e => {
         if (e.detail.errMsg === "getUserInfo:ok") {
             const info = e.detail.rawData
+            request('/login', {
+                username: ''
+            })
+
+
             const oldInfo = kboneAPI.getStorageSync('userInfo')
             !oldInfo && kboneAPI.setStorage({
                 key: "userInfo",
@@ -104,7 +143,7 @@ const WhoIsUndercover = () => {
             </div>
 
             <div className='start-btn'>
-                <wx-button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" kbone-event-map={eventMap} >
+                <wx-button open-type="getPhoneNumber" bindgetphonenumber='bindgetphonenumber' kbone-event-map={eventMap} >
                     创建房间
                 </wx-button>
             </div>
